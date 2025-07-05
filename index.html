@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="bInv-4U-k8u_aC4MJtd-lkrrVkpsb1vBoUcyIL-DrXM" />
+    <title>Common Space Coffee & Bar - Temukan Ruangmu</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <style>
+        /* CSS Reset & Basic Styling */
+        :root {
+            --primary-color: #6F4E37; /* Coklat Kopi */
+            --secondary-color: #2c3e50; /* Biru Tua Malam */
+            --accent-color: #e67e22; /* Oranye Hangat */
+            --text-color: #333;
+            --bg-light: #fdfaf6;
+            --white: #ffffff;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+            line-height: 1.7;
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
+        h3 { font-size: 1.5rem; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d35400;
+        }
+
+        /* Header & Navigasi */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .navbar .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar ul li a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0;
+        }
+
+        #hero h1 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+
+        /* Tentang Kami Section */
+        #about .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        #about .about-text {
+            flex: 1;
+        }
+        
+        #about .about-image {
+            flex: 1;
+        }
+
+        #about img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Keunikan Kami Section */
+        #uniqueness {
+            background-color: var(--white);
+        }
+
+        .uniqueness-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .unique-card {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .unique-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .unique-card .icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px dashed var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .menu-item-header h3 {
+            color: var(--secondary-color);
+        }
+
+        .menu-item-header .price {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .menu-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Galeri Section */
+        #gallery {
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        /* Lokasi Section */
+        #location .container {
+            text-align: center;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        .info-container h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .info-container p {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        
+        footer .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media(max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media(max-width: 768px) {
+            .navbar { flex-direction: column; }
+            .navbar .logo { margin-bottom: 15px; }
+            .navbar ul { padding-left: 0; }
+            .navbar ul li a { margin: 0 15px; }
+
+            #hero { height: 80vh; }
+            h1 { font-size: 2.2rem; }
+            #hero p { font-size: 1rem; }
+            
+            section { padding: 60px 0; }
+            
+            #about .container { flex-direction: column; }
+            .uniqueness-grid { grid-template-columns: 1fr; }
+            .location-content { grid-template-columns: 1fr; }
+            .map-container { margin-bottom: 30px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-grid img { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header>
+        <nav class="navbar container">
+            <a href="#" class="logo">Common Space</a>
+            <ul>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#location">Lokasi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Temukan Ruangmu di Common Space</h1>
+                <p>Lebih dari sekadar kopi dan koktail, ini adalah rumah keduamu untuk berkumpul, berkolaborasi, dan bersantai.</p>
+                <a href="#menu" class="btn">Lihat Menu Unggulan</a>
+            </div>
+        </section>
+
+        <!-- Tentang Kami Section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-text">
+                    <h2>Selamat Datang di Common Space</h2>
+                    <p>Kami percaya bahwa tempat terbaik lahir dari pertemuan ide dan kebersamaan. Common Space diciptakan sebagai wadah bagi komunitas, para pekerja kreatif, dan penikmat suasana untuk saling terhubung.</p>
+                    <p>Dengan secangkir kopi artisan di pagi hari atau segelas koktail di malam hari, kami menyediakan ruang yang nyaman dan inspiratif untuk setiap momen Anda.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Ganti dengan foto interior yang hangat -->
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop" alt="Suasana interior Common Space">
+                </div>
+            </div>
+        </section>
+
+        <!-- Keunikan Kami Section -->
+        <section id="uniqueness">
+            <div class="container">
+                <h2>Pagi & Malam, Selalu Ada Ruang Untukmu</h2>
+                <div class="uniqueness-grid">
+                    <div class="unique-card">
+                        <div class="icon"><i class="fas fa-coffee"></i></div>
+                        <h3>Aroma Pagi & Produktivitas</h3>
+                        <p>Awali harimu dengan biji kopi pilihan dari berbagai daerah, diseduh oleh barista kami yang berpengalaman. Suasana yang tenang sempurna untuk bekerja, rapat, atau sekadar menikmati waktu sendiri.</p>
+                    </div>
+                    <div class="unique-card">
+                        <div class="icon"><i class="fas fa-martini-glass-citrus"></i></div>
+                        <h3>Semarak Malam & Relaksasi</h3>
+                        <p>Saat senja tiba, Common Space bertransformasi. Nikmati koktail khas racikan para mixologist kami, ditemani musik dan suasana yang hidup. Tempat ideal untuk melepas penat setelah seharian beraktivitas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Unggulan Section -->
+        <section id="menu">
+            <div class="container">
+                <h2>Menu Unggulan Kami</h2>
+                <div class="menu-grid">
+                    <!-- Kategori Kopi -->
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3>Caramel Macchiato</h3>
+                            <span class="price">Rp 35.000</span>
+                        </div>
+                        <p>Espresso, susu steam, dan sirup vanila dengan sentuhan saus karamel.</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3>V60 Manual Brew</h3>
+                            <span class="price">Rp 32.000</span>
+                        </div>
+                        <p>Pilih biji kopi single origin favoritmu dan nikmati cita rasa aslinya.</p>
+                    </div>
+                    <!-- Kategori Makanan -->
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3>Truffle Fries</h3>
+                            <span class="price">Rp 45.000</span>
+                        </div>
+                        <p>Kentang goreng renyah dengan minyak truffle dan taburan keju parmesan.</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3>Spaghetti Aglio e Olio</h3>
+                            <span class="price">Rp 55.000</span>
+                        </div>
+                        <p>Pasta klasik dengan bawang putih, minyak zaitun, cabai, dan potongan ayam.</p>
+                    </div>
+                    <!-- Kategori Koktail -->
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3>Common's Old Fashioned</h3>
+                            <span class="price">Rp 95.000</span>
+                        </div>
+                        <p>Wiski, gula, angostura bitters dengan sentuhan kulit jeruk khas kami.</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3>Lychee Martini</h3>
+                            <span class="price">Rp 90.000</span>
+                        </div>
+                        <p>Campuran vodka, vermouth, dan sirup leci yang manis dan menyegarkan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeri Section -->
+        <section id="gallery">
+            <div class="container">
+                <h2>Momen di Common Space</h2>
+                <div class="gallery-grid">
+                    <!-- Ganti dengan foto-foto Anda -->
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2070&auto=format&fit=crop" alt="Secangkir Kopi">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop" alt="Suasana Bar">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop" alt="Koktail">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop" alt="Pengunjung menikmati suasana">
+                </div>
+            </div>
+        </section>
+
+       
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="copyright">© 2025 Common Space Coffee & Bar. Semua Hak Cipta Dilindungi. <a href="https://vpsekspor.com/"> vpsekspor</a></p>
+        </div>
+
+<div style="display: none;">
+
+<a href="https://jagoankita.my.id">click here</a>
+
+</div>
+    </footer>
+
+</body>
+</html>
